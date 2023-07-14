@@ -1,10 +1,10 @@
 # Installation
-`pip install `
+`pip install https://github.com/SENERGY-Platform/ksql-query-builder`
 
 # Usage
 ## SELECT 
 ```python
-from ksql-query-builder import Builder, SelectContainer
+from ksql_query_builder import Builder, SelectContainer
 builder = Builder()
 
 stream_name = "stream"
@@ -17,7 +17,7 @@ builder.build_select_query(stream_name, containers)
 
 ## CREATE STREAM
 ```python
-from ksql-query-builder import Builder, CreateContainer
+from ksql_query_builder import Builder, CreateContainer
 builder = Builder()
 
 stream_name = "stream"

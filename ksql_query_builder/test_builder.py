@@ -1,7 +1,7 @@
 import pytest
 
-from builder import Builder
-from container import CreateContainer, SelectContainer
+from .builder import Builder
+from .container import CreateContainer, SelectContainer
 
 def test_convert_path_to_select_form():
     b = Builder()
@@ -32,7 +32,7 @@ def test_build_select_query(stream_name, containers, expected_query):
     assert(expected_query == actual_query)
 
 @pytest.mark.parametrize("stream_name, topic, containers, expected_query",[
-    ("stream1", 'topic', [CreateContainer(path="power", type="DOUBLE"), CreateContainer(path="time", type="STRING")], "CREATE STREAM stream1 (power DOUBLE, time DOUBLE) WITH (kafka_topic='topic', value_format='json', partitions=1)"),
+    ("stream1", 'topic', [CreateContainer(path="power", type="DOUBLE"), CreateContainer(path="time", type="STRING")], "CREATE STREAM stream1 (power DOUBLE, time STRING) WITH (kafka_topic='topic', value_format='json', partitions=1)"),
     ("stream1", 'topic', [CreateContainer(path="value.power", type="DOUBLE"), CreateContainer(path="value.time", type="STRING")], "CREATE STREAM stream1 (value STRUCT<power DOUBLE, time STRING>) WITH (kafka_topic='topic', value_format='json', partitions=1)"),
 ])
 def test_build_create_stream_query(stream_name, topic, containers, expected_query):
