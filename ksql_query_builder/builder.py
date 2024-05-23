@@ -39,7 +39,6 @@ class Builder():
         first_container_to_rest = defaultdict(lambda: [])
 
         for container in create_containers:
-            print(container)
             path = container.path.split('.')
             first_path = path[0]
             rest_paths = path[1:]

@@ -18,7 +18,7 @@ import setuptools
 
 setuptools.setup(
     name="ksql_query_builder",
-    version="0.0.2",
+    version="0.0.3",
     author="Hannes Hansen",
     description="Build KSQL Queries based on JSON paths",
     packages=setuptools.find_packages(),
